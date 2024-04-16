@@ -1,9 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
-import exercises from './assets/data/exercises.json';
+import exercises from '../../assets/data/exercises.json'
 import tw from 'twrnc';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import ExerciseList from './src/components/ExerciseList';
+import ExerciseList from '../components/ExerciseList';
 
 export default function App() {
 
@@ -26,6 +26,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#333945',
     paddingHorizontal: wp('4%'),
     justifyContent: 'center',
-    paddingTop: hp('8%'),
+    paddingTop: hp('1%'),
   },
 });
