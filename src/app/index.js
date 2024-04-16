@@ -1,16 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, FlatList, StyleSheet, Text, View } from 'react-native';
 import exercises from '../../assets/data/exercises.json'
 import tw from 'twrnc';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import ExerciseList from '../components/ExerciseList';
+import { useQuery } from '@tanstack/react-query';
 
-export default function App() {
+export default function ExerciseScreen() {
 
+  const {data, isLoading}=useQuery({
+    queryKey:['exercises'],
+    queryFn:()=>{
+      return exercises;
+    }
+  })
+
+  if(isLoading){
+    return <ActivityIndicator />
+  }
   return (
     <View style={styles.container}>
       <FlatList 
-      data={exercises}
+      data={data}
       renderItem={ExerciseList}
       keyExtractor={item => item.name}
       contentContainerStyle={{gap: hp('1%')}}
