@@ -31,8 +31,8 @@ export default function ExerciseScreen() {
     return <Text style={tw`text-white`}>Error occured while fetching data</Text>
   }
 
-  console.log(data)
-  console.log(error)
+  // console.log(data)
+  // console.log(error)
   return (
     <View style={styles.container}>
       <FlatList 

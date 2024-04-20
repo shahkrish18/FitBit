@@ -6,6 +6,8 @@ import {Stack} from 'expo-router'
 import { gql } from 'graphql-request'
 import { useQuery } from '@tanstack/react-query'
 import graphqlClient from '../graphqlClient'
+import NewSetInput from '../components/NewSetInput'
+import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen'
 
 const exercisesQuery = gql`
   query exercises($name: String) {
@@ -56,6 +58,7 @@ const ExerciseDetails = () => {
           {isExpanded ? 'see less' : 'see more'}
         </Text>
       </View>
+      <NewSetInput />
     </ScrollView>
   );
 };
@@ -65,8 +68,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#333945',
-    paddingHorizontal: 20,
-    paddingTop: 10,
+    paddingHorizontal: widthPercentageToDP('4%'),
+    paddingTop: heightPercentageToDP('1%'),
   },
 });
 
